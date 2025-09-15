@@ -1,0 +1,15 @@
+@import "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css";
+
+
+.page-container {
+  padding: 20px;
+}
+
+.form-container {
+  width: 600px;
+  padding: 20px;
+}
+
+button {
+  margin: 0 10px;
+}
