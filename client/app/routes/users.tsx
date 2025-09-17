@@ -1,4 +1,12 @@
 import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router";
+import { requireAuth } from "../lib/auth";
+import type { LoaderFunction } from "react-router";
+
+export const clientLoader: LoaderFunction = async () => {
+  const user = requireAuth(); // This will redirect to /login if not authenticated
+  return { user };
+};
 
 const apiUrl = () => 'https://jsonplaceholder.typicode.com/users'
 
@@ -9,6 +17,7 @@ interface User {
 }
 
 export default function Users() {
+    const { user } = useLoaderData<{ user: any }>();
     const [users, setUsers] = useState<User[]>([])
     const [formData, setFormData] = useState<User>({name: '', email: ''})
 
@@ -78,6 +87,7 @@ export default function Users() {
     <div className="page-container">
         <div className="page-header">
             <h1>Users Page</h1>
+            <p>Welcome, {user.name}!</p>
         </div>
         <div className="form-container">
             <h2>Add / Edit User</h2>
