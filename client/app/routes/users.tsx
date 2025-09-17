@@ -131,7 +131,7 @@ export default function Users() {
                 </thead>
                 <tbody>
                     {users.map(user => (
-                        <tr>
+                        <tr key={user.id ?? user.email}>
                             <th>{user.id}</th>
                             <th>{user.name}</th>
                             <th>{user.email}</th>

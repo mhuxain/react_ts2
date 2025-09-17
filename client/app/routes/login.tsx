@@ -1,8 +1,8 @@
 import { Form, redirect, useActionData } from "react-router";
 import { login } from "../lib/auth";
-import type { ActionFunction } from "react-router";
+import type { ClientActionFunction } from "react-router";
 
-export const action: ActionFunction = async ({ request }) => {
+export const clientAction: ClientActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;

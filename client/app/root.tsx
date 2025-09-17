@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import TopNav from "./components/TopNav";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -33,7 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <TopNav />
+        <main className="app-main">{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>
